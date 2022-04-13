@@ -158,21 +158,23 @@
 	
 
 		const scriptURL = 'https://script.google.com/macros/s/AKfycbzihWRnYX36RQKzFm4i3ulx49YaUMccHySJ9Tbb-GAtB-0Kf2cdedMrqQjhiCB5JwMADw/exec'
-	   const form = document.forms['google-sheet']
-			
-			  form.addEventListener('submit',e=> {
-				e.preventDefault();
-				fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-				  .then(
-					  response =>response.json()
-				  ).then((html) => {
-					  window.open('severity.html','_blank')
-
-				  });
-
-				});
-				  
+		  const form = document.forms['google-sheet']
+		
+		  form.addEventListener('submit', e => {
+			e.preventDefault()
+			fetch(scriptURL, { method: 'POST', body: new FormData(form),mode: 'no-cors',
+			cache: 'default'})
+			  .then(response => alert("You have successfully submitted."))
+			  .catch(error => console.error('Error!', error.message))
+		  })
 </script>
+<br><br>
+				<div style="text-align:center">
+					<button type="result" name="Result"><a href="severity.html">Know your Result</a></button>
+				</div>  
+
+				  
+
   
 </body>
 </html>
